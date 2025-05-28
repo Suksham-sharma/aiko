@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -15,20 +14,20 @@ datasource db {
 }
 
 model User {
-  id             String     @id @default(uuid())
-  clerkId        String     @unique
+  id             String    @id @default(uuid())
+  clerkId        String    @unique
   name           String
-  email          String     @unique
+  email          String    @unique
   profilePicture String?
-  premium        Boolean    @default(false)
-  createdAt      DateTime   @default(now())
-  updatedAt      DateTime   @updatedAt
-  projects       Projects[] @relation("UserProjects")
+  premium        Boolean   @default(false)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  projects       Project[] @relation("UserProjects")
 
   @@map("users")
 }
 
-model Projects {
+model Project {
   id        String   @id @default(cuid())
   name      String
   slides    Json?

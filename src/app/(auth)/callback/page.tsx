@@ -1,8 +1,8 @@
-import { onAuthenticateUser } from "@/actions/user";
+import { onAuthenticatedUser } from "@/actions/user";
 import { redirect } from "next/navigation";
 
 const AuthCallbackPage = async () => {
-  const { status } = await onAuthenticateUser();
+  const { status } = await onAuthenticatedUser();
 
   if (status === 200 || status === 201) {
     redirect("/dashboard");

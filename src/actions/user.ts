@@ -1,6 +1,9 @@
+"use server";
+
+import { prisma } from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/server";
 
-export const onAuthenticateUser = async () => {
+export const onAuthenticatedUser = async () => {
   try {
     const user = await currentUser();
 
